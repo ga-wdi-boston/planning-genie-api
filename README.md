@@ -1,6 +1,6 @@
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-# rails-api-template
+# planning-genie-api
 
 A template for starting projects with `rails-api`. Includes authentication.
 
@@ -30,7 +30,7 @@ version of Rails 4, as well as track `master` branches for `rails-api` and
 1.  Rename your app module in `config/application.rb` (change
     `RailsApiTemplate`).
 1.  Rename your project database in `config/database.yml` (change
-    `'rails-api-template'`).
+    `'planning-genie-api'`).
 1.  Create a `.env` for sensitive settings (`touch .env`).
 1.  Generate new `development` and `test` secrets (`bundle exec rake secret`).
 1.  Store them in `.env` with keys `SECRET_KEY_BASE_<DEVELOPMENT|TEST>`
