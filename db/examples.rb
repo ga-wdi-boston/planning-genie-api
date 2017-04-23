@@ -17,3 +17,13 @@
 #                password: 'abc123',
 #                password_confirmation: nil)
 # end
+
+User.create(email: 'e',
+            password: 'p',
+            password_confirmation: 'p',
+            github_username: 'gh')
+
+Material.create(user_id: 1,
+                material_type: 'study',
+                name: 'rails-api-study',
+                due_date: '08-03-1900')
