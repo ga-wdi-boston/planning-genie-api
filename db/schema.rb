@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170405002707) do
+ActiveRecord::Schema.define(version: 20170423151915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "deliveries", force: :cascade do |t|
+    t.string   "status"
+    t.string   "date"
+    t.string   "cohort"
+    t.integer  "prepper_id"
+    t.integer  "reviewer_id"
+    t.integer  "user_id",     null: false
+    t.integer  "material_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["material_id"], name: "index_deliveries_on_material_id", using: :btree
+    t.index ["prepper_id"], name: "index_deliveries_on_prepper_id", using: :btree
+    t.index ["reviewer_id"], name: "index_deliveries_on_reviewer_id", using: :btree
+    t.index ["user_id"], name: "index_deliveries_on_user_id", using: :btree
+  end
 
   create_table "examples", force: :cascade do |t|
     t.text     "text",       null: false
@@ -44,6 +60,8 @@ ActiveRecord::Schema.define(version: 20170405002707) do
     t.index ["token"], name: "index_users_on_token", unique: true, using: :btree
   end
 
+  add_foreign_key "deliveries", "materials"
+  add_foreign_key "deliveries", "users"
   add_foreign_key "examples", "users"
   add_foreign_key "materials", "users"
 end

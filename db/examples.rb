@@ -23,7 +23,36 @@ User.create(email: 'e',
             password_confirmation: 'p',
             github_username: 'gh')
 
+User.create(email: 'yo',
+            password: 'yo',
+            password_confirmation: 'yo',
+            github_username: 'yo')
+
+Material.create(user_id: 2,
+                material_type: 'template',
+                name: 'rails-api-template',
+                due_date: '01-04-2000')
+
 Material.create(user_id: 1,
                 material_type: 'study',
                 name: 'rails-api-study',
                 due_date: '08-03-1900')
+
+Delivery.create([{
+                  user_id: 1,
+                  status: 'ready',
+                  cohort: '017',
+                  material_id: 1
+                },
+                {
+                  user_id: 2,
+                  status: 'prepared',
+                  cohort: 'lm01',
+                  material_id: 2
+                },
+                {
+                  user_id: 2,
+                  status: 'delivered',
+                  cohort: '017',
+                  material_id: 1
+                }])
