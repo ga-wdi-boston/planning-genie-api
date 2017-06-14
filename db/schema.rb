@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20170423151915) do
   enable_extension "plpgsql"
 
   create_table "deliveries", force: :cascade do |t|
+    t.datetime "due_date",    null: false
     t.string   "status"
-    t.string   "date"
     t.string   "cohort"
     t.integer  "prepper_id"
     t.integer  "reviewer_id"
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 20170423151915) do
   end
 
   create_table "materials", force: :cascade do |t|
-    t.text     "due_date",      null: false
     t.text     "material_type", null: false
     t.text     "name",          null: false
     t.integer  "user_id",       null: false
