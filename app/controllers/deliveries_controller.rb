@@ -18,7 +18,7 @@ class DeliveriesController < ApplicationController
     @delivery = Delivery.new(delivery_params)
 
     if @delivery.save
-      render json: @delivery, status: :created, location: @delivery
+      render json: @delivery, status: :created
     else
       render json: @delivery.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,10 @@ class DeliveriesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def delivery_params
-      params.require(:delivery).permit(:status, :date, :cohort)
+      params.require(:delivery).permit(:material_id,
+                                       :user_id,
+                                       :status,
+                                       :cohort,
+                                       :due_date)
     end
 end

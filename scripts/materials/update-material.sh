@@ -9,9 +9,8 @@ curl "${API}${URL_PATH}" \
   --header "Authorization: Token token=$TOKEN" \
   --data '{
     "material": {
-      "material_type": "Poop",
-      "due_date": "2017-04-02",
-      "name": "'"poop-study-practice"'"
+      "material_type": "Practice",
+      "name": "rails-api-practice"
     }
   }'
 
