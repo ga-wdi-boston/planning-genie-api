@@ -2,7 +2,10 @@
 
 class User < ApplicationRecord
   include Authentication
+
   has_many :examples
   has_many :materials, through: :deliveries
   has_many :deliveries
+
+  has_one :profile
 end
