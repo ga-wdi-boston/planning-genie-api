@@ -1,9 +1,15 @@
-class DeliveriesController < ApplicationController
-  before_action :set_delivery, only: [:show, :update, :destroy]
+# frozen_string_literal: true
+
+class DeliveriesController < OpenReadController
+  before_action :set_delivery, only: `%i(show update destroy)`
 
   # GET /deliveries
   def index
-    @deliveries = Delivery.all
+    @deliveries = if params[:user_id]
+                    User.find(params[:user_id]).deliveries
+                  else
+                    Delivery.all
+                  end
 
     render json: @deliveries
   end
@@ -39,17 +45,17 @@ class DeliveriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_delivery
-      @delivery = Delivery.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def delivery_params
-      params.require(:delivery).permit(:material_id,
-                                       :user_id,
-                                       :status,
-                                       :cohort,
-                                       :due_date)
-    end
+  def set_delivery
+    @delivery = Delivery.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def delivery_params
+    params.require(:delivery).permit(:material_id,
+                                     :user_id,
+                                     :status,
+                                     :cohort,
+                                     :due_date)
+  end
 end
