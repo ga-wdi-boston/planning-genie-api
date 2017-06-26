@@ -1,7 +1,7 @@
 #!/bin/bash
 TOKEN=
 API="${API_ORIGIN:-http://localhost:4741}"
-URL_PATH="/materials"
+URL_PATH="/deliveries"
 curl "${API}${URL_PATH}" \
   --include \
   --request GET \
@@ -10,4 +10,4 @@ curl "${API}${URL_PATH}" \
 echo
 
 
-curl --include --request GET http://localhost:4741/materials
+curl --include --request GET http://localhost:4741/deliveries

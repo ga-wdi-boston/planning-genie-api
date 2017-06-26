@@ -51,7 +51,7 @@ class MaterialsController < OpenReadController
   end
 
   def material_params
-    params.require(:material).permit(:material_type, :due_date, :name)
+    params.require(:material).permit(:material_type, :name)
   end
 
   private :set_material, :material_params

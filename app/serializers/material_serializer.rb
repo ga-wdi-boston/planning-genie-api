@@ -1,3 +1,3 @@
 class MaterialSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :name, :material_type
 end
