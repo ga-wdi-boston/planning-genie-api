@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 Rails.application.routes.draw do
   post '/sign-up' => 'users#signup'
   post '/sign-in' => 'users#signin'
@@ -9,4 +10,5 @@ Rails.application.routes.draw do
   resources :deliveries, except: [:new, :edit]
   resources :materials, except: [:new, :edit]
   resources :examples, except: [:new, :edit]
+  resources :profiles, except: [:new, :edit]
 end
