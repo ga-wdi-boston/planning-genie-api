@@ -1,15 +1,18 @@
 #!/bin/bash
-ID=3
+
 API="${API_ORIGIN:-http://localhost:4741}"
-URL_PATH="/profiles/$ID"
-curl "${API}${URL_PATH}" \
+URL_PATH="/profiles"
+curl "${API}${URL_PATH}/${ID}" \
   --include \
   --request PATCH \
   --header "Content-Type: application/json" \
   --header "Authorization: Token token=$TOKEN" \
   --data '{
     "profile": {
-      "preferences": "Rails"
+      "given_name": "'"${GIVEN_NAME}"'",
+      "family_name": "'"${FAMILY_NAME}"'",
+      "photo_url": "'"${PHOTO_URL}"'",
+      "preferences": "'"${PREFERENCES}"'"
     }
   }'
 

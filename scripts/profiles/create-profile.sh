@@ -9,10 +9,10 @@ curl "${API}${URL_PATH}" \
   --header "Authorization: Token token=$TOKEN" \
   --data '{
     "profile": {
-      "user_id": "Practice",
-      "given_name": "Chris",
-      "family_name": "Payne",
-      "photo_url": "http://study-practice"
+      "given_name": "'"${GIVEN_NAME}"'",
+      "family_name": "'"${FAMILY_NAME}"'",
+      "photo_url": "'"${PHOTO_URL}"'",
+      "preferences": "'"${PREFERENCES}"'"
     }
   }'
 
