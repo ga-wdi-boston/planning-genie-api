@@ -275,6 +275,24 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
+### Deliveries
+
+| GET    | /deliveries(.:format)    | deliveries#index |
+| POST   | /deliveries(.:format)     | deliveries#create |
+| GET    | /deliveries/:id(.:format) | deliveries#show |
+| PATCH  | /deliveries/:id(.:format) | deliveries#update |
+| PUT    | /deliveries/:id(.:format) | deliveries#update |
+| DELETE | /deliveries/:id(.:format) | deliveries#destroy |
+
+### Materials
+
+| GET    | /materials(.:format)      | materials#index |
+| POST   | /materials(.:format)      | materials#create |
+| GET    | /materials/:id(.:format)  | materials#show |
+| PATCH  | /materials/:id(.:format)  | materials#update |
+| PUT    | /materials/:id(.:format)  | materials#update |
+| DELETE | /materials/:id(.:format)  | materials#destroy |
+
 ### Reset Database without dropping
 
 This is not a task developers should run often, but it is sometimes necessary.
