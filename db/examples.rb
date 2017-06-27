@@ -29,6 +29,12 @@ User.create(email: 'yo',
             password_confirmation: 'yo',
             github_username: 'yo')
 
+Profile.create(given_name: 'Chris',
+               family_name: 'Payne',
+               photo_url: 'http://aws.com',
+               preferences: 'multer',
+               user_id: 2)
+
 Material.create(user_id: 2,
                 material_type: 'template',
                 name: 'rails-api-template')
