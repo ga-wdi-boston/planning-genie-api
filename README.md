@@ -286,6 +286,49 @@ Content-Type: application/json; charset=utf-8
 | PUT    | /deliveries/:id(.:format) | deliveries#update |
 | DELETE | /deliveries/:id(.:format) | deliveries#destroy |
 
+#### GET /deliveries
+
+Request:
+
+```sh
+#!/bin/bash
+
+API="${API_ORIGIN:-http://localhost:4741}"
+URL_PATH="/deliveries"
+curl "${API}${URL_PATH}" \
+  --include \
+  --request POST \
+  --header "Content-Type: application/json" \
+  --header "Authorization: Token token=$TOKEN" \
+  --data '{
+    "delivery": {
+      "material_id": 2,
+      "due_date": "2017-04-02",
+      "prepper_id": "1",
+      "reviewer_id": "1",
+      "user_id": "1",
+      "status": "Ready",
+      "cohort": "wdi-bos-LM01"
+    }
+  }'
+
+
+echo
+```
+
+```sh
+TOKEN=BAhJIiVlZDIwZTMzMzQzODg5NTBmYjZlNjRlZDZlNzYxYzU2ZAY6BkVG--7e7f77f974edcf5e4887b56918f34cd9fe293b9f scripts/get-deliveries.sh
+```
+
+Response:
+
+```md
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+```
+
+
+
 ### Materials
 
 | Verb | URI Pattern | Controller#Action |
