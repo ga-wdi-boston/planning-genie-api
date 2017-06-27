@@ -2,7 +2,6 @@
 
 class DeliveriesController < OpenReadController
   before_action :set_delivery, only: `%i(show update destroy)`
-  # before_action :set_deliveries, only: `%i(index)`
 
   # GET /deliveries
   def index
