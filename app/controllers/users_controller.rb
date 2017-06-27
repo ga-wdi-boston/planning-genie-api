@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class UsersController < ProtectedController
   skip_before_action :authenticate, only: [:signup, :signin]
 
@@ -6,6 +7,9 @@ class UsersController < ProtectedController
   def signup
     user = User.create(user_creds)
     if user.valid?
+      # Profile.create () ?? <-- seems like muddying concerns -- is it?
+      # better to do it this way or to send create profile req after successful
+      # sign up
       render json: user, status: :created
     else
       render json: user.errors, status: :bad_request

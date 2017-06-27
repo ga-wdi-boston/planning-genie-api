@@ -9,13 +9,13 @@ curl "${API}${URL_PATH}" \
   --header "Authorization: Token token=$TOKEN" \
   --data '{
     "delivery": {
-      "material_id": 2,
-      "due_date": "2017-04-02",
+      "material_id": 1,
+      "due_date": "2017-06-22",
       "prepper_id": "1",
       "reviewer_id": "1",
       "user_id": "1",
       "status": "Ready",
-      "cohort": "wdi-bos-LM01"
+      "cohort": "wdi-bos-019"
     }
   }'
 

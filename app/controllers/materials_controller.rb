@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class MaterialsController < OpenReadController
   before_action :set_material, only: [:update, :destroy]
 
