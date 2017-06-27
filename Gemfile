@@ -17,6 +17,7 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.3'
   gem 'rspec-rails', '~> 3.5'
   gem 'rubocop', '~> 0.46'
+  gem 'icalendar'
 end
 
 group :development do
