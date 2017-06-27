@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class ExamplesController < OpenReadController
   before_action :set_example, only: [:update, :destroy]
 

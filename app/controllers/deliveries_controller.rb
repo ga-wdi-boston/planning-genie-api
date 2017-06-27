@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class DeliveriesController < OpenReadController
-  before_action :set_delivery, only: `%i(show update destroy)`
+  before_action :set_delivery, only: [:show, :update, :destroy]
 
   # GET /deliveries
   def index
