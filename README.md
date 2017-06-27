@@ -277,7 +277,9 @@ Content-Type: application/json; charset=utf-8
 
 ### Deliveries
 
-| GET    | /deliveries(.:format)    | deliveries#index |
+| Verb | URI Pattern | Controller#Action |
+|------|-------------|-------------------|
+| GET    | /deliveries(.:format)     | deliveries#index |
 | POST   | /deliveries(.:format)     | deliveries#create |
 | GET    | /deliveries/:id(.:format) | deliveries#show |
 | PATCH  | /deliveries/:id(.:format) | deliveries#update |
@@ -286,6 +288,8 @@ Content-Type: application/json; charset=utf-8
 
 ### Materials
 
+| Verb | URI Pattern | Controller#Action |
+|------|-------------|-------------------|
 | GET    | /materials(.:format)      | materials#index |
 | POST   | /materials(.:format)      | materials#create |
 | GET    | /materials/:id(.:format)  | materials#show |
