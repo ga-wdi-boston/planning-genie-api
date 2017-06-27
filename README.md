@@ -275,6 +275,71 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
+### Deliveries
+
+| Verb | URI Pattern | Controller#Action |
+|------|-------------|-------------------|
+| GET    | /deliveries(.:format)     | deliveries#index |
+| POST   | /deliveries(.:format)     | deliveries#create |
+| GET    | /deliveries/:id(.:format) | deliveries#show |
+| PATCH  | /deliveries/:id(.:format) | deliveries#update |
+| PUT    | /deliveries/:id(.:format) | deliveries#update |
+| DELETE | /deliveries/:id(.:format) | deliveries#destroy |
+
+#### GET /deliveries
+
+Request:
+
+```sh
+#!/bin/bash
+
+API="${API_ORIGIN:-http://localhost:4741}"
+URL_PATH="/deliveries"
+curl "${API}${URL_PATH}" \
+  --include \
+  --request POST \
+  --header "Content-Type: application/json" \
+  --header "Authorization: Token token=$TOKEN" \
+  --data '{
+    "delivery": {
+      "material_id": 2,
+      "due_date": "2017-04-02",
+      "prepper_id": "1",
+      "reviewer_id": "1",
+      "user_id": "1",
+      "status": "Ready",
+      "cohort": "wdi-bos-LM01"
+    }
+  }'
+
+
+echo
+```
+
+```sh
+TOKEN=BAhJIiVlZDIwZTMzMzQzODg5NTBmYjZlNjRlZDZlNzYxYzU2ZAY6BkVG--7e7f77f974edcf5e4887b56918f34cd9fe293b9f scripts/get-deliveries.sh
+```
+
+Response:
+
+```md
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+```
+
+
+
+### Materials
+
+| Verb | URI Pattern | Controller#Action |
+|------|-------------|-------------------|
+| GET    | /materials(.:format)      | materials#index |
+| POST   | /materials(.:format)      | materials#create |
+| GET    | /materials/:id(.:format)  | materials#show |
+| PATCH  | /materials/:id(.:format)  | materials#update |
+| PUT    | /materials/:id(.:format)  | materials#update |
+| DELETE | /materials/:id(.:format)  | materials#destroy |
+
 ### Reset Database without dropping
 
 This is not a task developers should run often, but it is sometimes necessary.
