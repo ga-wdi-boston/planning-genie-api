@@ -19,6 +19,10 @@
 #                password_confirmation: nil)
 # end
 
+# require ICS parsing script, which gives access to
+# EVENTS_EXPORT, an array of hashes representing materials
+require Rails.root.join("scripts", "parse-ics.rb")
+
 User.create(email: 'e@aol.com',
             password: 'p',
             password_confirmation: 'p',
@@ -35,15 +39,13 @@ Profile.create(given_name: 'Chris',
                preferences: 'multer',
                user_id: 2)
 
-Material.create(user_id: 2,
-                material_type: 'template',
-                name: 'rails-api-template',
-                length: 30)
-
-Material.create(user_id: 1,
-                material_type: 'study',
-                name: 'rails-api-study',
-                length: 30)
+# add a material for each event parsed and validated in the script
+EVENTS_EXPORT.each do |e|
+  Material.create(name: e[:name],
+                  material_type: e[:type],
+                  length: e[:length],
+                  user_id: 1)
+end
 
 Delivery.create(
   [
