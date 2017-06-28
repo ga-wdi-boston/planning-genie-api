@@ -1,6 +1,6 @@
 require 'icalendar'
 
-PATH = "< your/path/here >"
+PATH = Rails.root.join("public", "cal.ics")
 
 # Open the file and call icalendar parse method on it
 cal_file = File.open(PATH)
@@ -62,4 +62,4 @@ cal.events.each do |e|
   end
 end
 
-puts events
+EVENTS_EXPORT = events
