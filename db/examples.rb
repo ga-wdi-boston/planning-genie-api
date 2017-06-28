@@ -37,11 +37,13 @@ Profile.create(given_name: 'Chris',
 
 Material.create(user_id: 2,
                 material_type: 'template',
-                name: 'rails-api-template')
+                name: 'rails-api-template',
+                length: 30)
 
 Material.create(user_id: 1,
                 material_type: 'study',
-                name: 'rails-api-study')
+                name: 'rails-api-study',
+                length: 30)
 
 Delivery.create(
   [
