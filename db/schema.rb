@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170615212402) do
+ActiveRecord::Schema.define(version: 20170801203435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20170615212402) do
     t.string   "cohort"
     t.integer  "prepper_id"
     t.integer  "reviewer_id"
-    t.integer  "user_id",     null: false
+    t.integer  "user_id"
     t.integer  "material_id", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
