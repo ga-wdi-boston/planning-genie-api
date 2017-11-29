@@ -80,12 +80,11 @@ tests in RSpec to test your API.
 
 ### Authentication
 
-| Verb   | URI Pattern            | Controller#Action |
-|--------|------------------------|-------------------|
-| POST   | `/sign-up`             | `users#signup`    |
-| POST   | `/sign-in`             | `users#signin`    |
-| PATCH  | `/change-password/:id` | `users#changepw`  |
-| DELETE | `/sign-out/:id`        | `users#signout`   |
+| Prefix   | Verb   | URI Pattern             | Controller#Action |
+| -------- | ------ | ----------------------- | ----------------- |
+| sign_up  | POST   | /sign-up(.:format)      | users#signup      |
+| sign_in  | POST   | /sign-in(.:format)      | users#signin      |
+| sign_out | DELETE | /sign-out/:id(.:format) | users#signout     |
 
 #### POST /sign-up
 
@@ -112,15 +111,9 @@ EMAIL=ava@bob.com PASSWORD=hannah scripts/sign-up.sh
 Response:
 
 ```md
-HTTP/1.1 201 Created
-Content-Type: application/json; charset=utf-8
+HTTP/1.1 201 Created Content-Type: application/json; charset=utf-8
 
-{
-  "user": {
-    "id": 1,
-    "email": "ava@bob.com"
-  }
-}
+{ "user": { "id": 1, "email": "ava@bob.com" } }
 ```
 
 #### POST /sign-in
@@ -147,16 +140,11 @@ EMAIL=ava@bob.com PASSWORD=hannah scripts/sign-in.sh
 Response:
 
 ```md
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
+HTTP/1.1 200 OK Content-Type: application/json; charset=utf-8
 
-{
-  "user": {
-    "id": 1,
-    "email": "ava@bob.com",
-    "token": "BAhJIiVlZDIwZTMzMzQzODg5NTBmYjZlNjRlZDZlNzYxYzU2ZAY6BkVG--7e7f77f974edcf5e4887b56918f34cd9fe293b9f"
-  }
-}
+{ "user": { "id": 1, "email": "ava@bob.com", "token":
+"BAhJIiVlZDIwZTMzMzQzODg5NTBmYjZlNjRlZDZlNzYxYzU2ZAY6BkVG--7e7f77f974edcf5e4887b56918f34cd9fe293b9f"
+} }
 ```
 
 #### PATCH /change-password/:id
@@ -208,10 +196,11 @@ HTTP/1.1 204 No Content
 
 ### Users
 
-| Verb | URI Pattern | Controller#Action |
-|------|-------------|-------------------|
-| GET  | `/users`    | `users#index`     |
-| GET  | `/users/1`  | `users#show`      |
+| Prefix | Verb  | URI Pattern                    | Controller#Action |
+| ------ | ----- | ------------------------------ | ----------------- |
+| users  | GET   | `/users`                       | `users#index`     |
+| users  | GET   | `/users/1`                     | `users#show`      |
+| users  | PATCH | /change-password/:id(.:format) | users#changepw    |
 
 #### GET /users
 
@@ -231,21 +220,10 @@ TOKEN=BAhJIiVlZDIwZTMzMzQzODg5NTBmYjZlNjRlZDZlNzYxYzU2ZAY6BkVG--7e7f77f974edcf5e
 Response:
 
 ```md
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
+HTTP/1.1 200 OK Content-Type: application/json; charset=utf-8
 
-{
-  "users": [
-    {
-      "id": 2,
-      "email": "bob@ava.com"
-    },
-    {
-      "id": 1,
-      "email": "ava@bob.com"
-    }
-  ]
-}
+{ "users": [ { "id": 2, "email": "bob@ava.com" }, { "id": 1, "email":
+"ava@bob.com" } ] }
 ```
 
 #### GET /users/:id
@@ -264,16 +242,43 @@ ID=2 TOKEN=BAhJIiVlZDIwZTMzMzQzODg5NTBmYjZlNjRlZDZlNzYxYzU2ZAY6BkVG--7e7f77f974e
 Response:
 
 ```md
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
+HTTP/1.1 200 OK Content-Type: application/json; charset=utf-8
 
-{
-  "user": {
-    "id": 2,
-    "email": "bob@ava.com"
-  }
-}
+{ "user": { "id": 2, "email": "bob@ava.com" } }
 ```
+
+### Delivery
+
+| Prefix   | Verb   | URI Pattern               | Controller#Action  |
+| -------- | ------ | ------------------------- | ------------------ |
+| delivery | GET    | /deliveries(.:format)     | deliveries#index   |
+| delivery | POST   | /deliveries(.:format)     | deliveries#create  |
+| delivery | GET    | /deliveries/:id(.:format) | deliveries#show    |
+| delivery | PATCH  | /deliveries/:id(.:format) | deliveries#update  |
+| delivery | PUT    | /deliveries/:id(.:format) | deliveries#update  |
+| delivery | DELETE | /deliveries/:id(.:format) | deliveries#destroy |
+
+#### Materials
+
+| Prefix    | Verb   | URI Pattern              | Controller#Action |
+| --------- | ------ | ------------------------ | ----------------- |
+| materials | GET    | /materials(.:format)     | materials#index   |
+| materials | POST   | /materials(.:format)     | materials#create  |
+| materials | GET    | /materials/:id(.:format) | materials#show    |
+| materials | PATCH  | /materials/:id(.:format) | materials#update  |
+| materials | PUT    | /materials/:id(.:format) | materials#update  |
+| materials | DELETE | /materials/:id(.:format) | materials#destroy |
+
+#### Profiles
+
+| Prefix   | Verb   | URI Pattern             | Controller#Action |
+| -------- | ------ | ----------------------- | ----------------- |
+| profiles | GET    | /profiles(.:format)     | profiles#index    |
+| profiles | POST   | /profiles(.:format)     | profiles#create   |
+| profiles | GET    | /profiles/:id(.:format) | profiles#show     |
+| profiles | PATCH  | /profiles/:id(.:format) | profiles#update   |
+| profiles | PUT    | /profiles/:id(.:format) | profiles#update   |
+| profiles | DELETE | /profiles/:id(.:format) | profiles#destroy  |
 
 ### Reset Database without dropping
 
