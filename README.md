@@ -285,14 +285,14 @@ HTTP/1.1 200 OK Content-Type: application/json; charset=utf-8
 
 This is not a task developers should run often, but it is sometimes necessary.
 
-**locally**
+#### Locally
 
 ```sh
 bin/rake db:migrate VERSION=0
 bin/rake db:migrate db:seed db:examples
 ```
 
-**heroku**
+#### Heroku
 
 ```sh
 heroku run rake db:migrate VERSION=0
