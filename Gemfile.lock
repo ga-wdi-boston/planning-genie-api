@@ -62,6 +62,9 @@ GEM
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
+    icalendar (2.5.3)
+      ice_cube (~> 0.16)
+    ice_cube (0.16.3)
     jsonapi (0.1.1.beta6)
       jsonapi-parser (= 0.1.1.beta3)
       jsonapi-renderer (= 0.1.1.beta1)
@@ -97,7 +100,7 @@ GEM
     pry-rails (0.3.4)
       pry (>= 0.9.10)
     puma (3.7.0)
-    rack (2.0.1)
+    rack (2.2.2)
     rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -186,6 +189,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.11)
   byebug
   dotenv-rails (~> 2.1, >= 2.1.1)
+  icalendar
   listen (~> 3.0.5)
   pg
   pry (~> 0.10)
